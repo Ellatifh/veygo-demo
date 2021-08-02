@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="icon" href="img/favicon.ico"/>
+    <title>Veygo Web Demo Player</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-free-5.14.0-web-all.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/vip-controls.css">
+</head>
+
+<body class="list nightTheme">
+    <div id=nav align="center">
+        <div>
+            <img class="logo" src="img/favicon.ico" alt="Veygo sample">
+            <h1 class="applicationname applicationnamehead">eygo</h1>
+            <h1 class="applicationname"> Web Demo player</h1>
+        </div>
+    </div>
+    <div align="center">
+        <div class="veygo-player-window veygo-border">
+            <div id="player0" class="veygo-video-with-controls" chromecastAppId="">
+                <div class="fixed-video-aspect-ratio"/>
+                <video class="veygo-video" playsinline></video>
+                <div class="veygo-poster">
+                  <img class="veygo-poster-img" />
+                  <div class="icon-center">
+                    <a class="fa fa-play fa-2x"></a>
+                  </div>
+                </div>
+                <div class="veygo-castreceiver-name"></div>
+                <div class="veygo-control" >
+                    <div class="veygo-control-bar">
+                        <a class="play fa fa-play-circle fa-2x" style="display: none;"></a>
+                        <a class="pause fa fa-pause-circle fa-2x"></a>
+                        <div class="position">––:––</div>
+                        <div class="cursor-holder">
+                            <div class="progress">
+                                <div class="total">&nbsp;</div>
+                                <div class="fill">&nbsp;</div>
+                            </div>
+                            <div class="cursor-container">
+                                <div class="cursor fa fa-circle"></div>
+                            </div>
+                        </div>
+                        <div class="duration">––:––</div>
+                        <a class="bt-mute fa fa-volume-up fa-2x"></a>
+                        <a style="display: none;" class="bt-unmute fa fa-volume-off fa-2x"></a>
+                        <input type="range" class="volume-bar" min="0" max="1" step="0.1" value="0.3">
+                        <a class="bt-cast fab fa-chromecast fa-2x"  style="display: none"></a>
+                        <a class="bt-tracks fa fa-cog fa-2x"></a>
+                        <a class="bt-fullscreen fa fa-expand fa-2x"></a>
+                        <a class="bt-fullscreen-exit fa fa-compress fa-2x" style="display: none;"></a>
+                    </div>
+                    <div class="tracks" style="display: none;">
+                        <div class="video-tracks">
+                          <h3>Video</h3>
+                          <ul class="video-representations">
+                          </ul>
+                        </div>
+                        <h3>Audio</h3>
+                        <ul class="audio-tracks">
+                        </ul>
+                        <h3>Subtitles</h3>
+                        <ul class="text-tracks">
+                        </ul>
+                    </div>
+                    <div class="thumbnail-container">
+                        <div class="thumbnail-elem"></div>
+                        <div class="thumbnail-time-label"></div>
+                    </div>
+                </div>
+                <div class="veygo-autoplay-unmute">
+                  <div class="icon-center">
+                    <a class="bt-tracks fa fa-cog fa-2x"></a>
+                  </div>
+                  <div class="explain-muted"><span>Click to unmute</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 1ex 0">
+          <input type="button" id="stop_btn" value="STOP" />
+          <input type="button" id="close_btn" value="CLOSE" />
+        </div>
+
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item nav-link active"><a href="#tab1" data-toggle="tab">Asset List</a></li>
+                <li class="nav-item nav-link"><a href="#tab2" data-toggle="tab">Customized asset</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <ul id="assetList" class="assets row mb-3"></ul>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <form id="customized_form" name="customized_form" style="padding: 1ex; color: rgba(210, 210, 210, 1); font-size: medium;">
+                      <div class="customAuthField">
+                          uri:
+                          <input type="text" class="customAuthInputText" id="uri" name="uri" required="required" >
+                      </div>
+                      <div class="customAuthField">
+                          type:
+                          <select id="type" name="type">
+                              <option value="dash" selected="selected">dash</option>
+                              <option value="hls">hls</option>
+                          </select>
+                      </div>
+                      <div class="customAuthField">
+                          scheme:
+                          <select id="scheme" name="scheme">
+                              <option value="" selected="selected">none</option>
+                              <option value="widevine">widevine</option>
+                              <option value="fairplay">fairplay</option>
+                              <option value="playready">playready</option>
+                              <option value="verimatrix">verimatrix</option>
+                          </select>
+                      </div>
+                      <div class="schemes">
+                        <div id="widevine">
+                            <div class="customAuthField">
+                                license_server:
+                                <input type="text" class="customAuthInputText" name="widevine.license_server" id="widevine.license_server">
+                            </div>
+                        </div>
+                        <div id="fairplay">
+                            <div class="customAuthField">
+                                license_server:
+                                <input type="text" class="customAuthInputText" name="fairplay.license_server" id="fairplay.license_server">
+                            </div>
+                            <div class="customAuthField">
+                                certificate_uri:
+                                <input type="text" class="customAuthInputText" name="fairplay.certificate_uri" id="fairplay.certificate_uri">
+                            </div>
+                        </div>
+                        <div id="playready">
+                            <div class="customAuthField">
+                                license_server:
+                                <input type="text" class="customAuthInputText" name="playready.license_server" id="playready.license_server">
+                            </div>
+                        </div>
+                          <div id="verimatrix">
+                              <div class="customAuthField">
+                                  server:
+                                  <input type="text" class="customAuthInputText" name="verimatrix.server" id="verimatrix.server" >
+                              </div>
+                              <div class="customAuthField">
+                                  company:
+                                  <input type="text" class="customAuthInputText" name="verimatrix.company" id="verimatrix.company">
+                              </div>
+                          </div>
+                      </div>
+                      <div>
+                        auth:
+                        <select id="auth" name="auth">
+                            <option value="" selected="selected">none</option>
+                        </select>
+                        <div id="authParams">
+                        </div>
+
+                        <div style="padding: 1ex 0">
+                            <input type="button" id="customized_submit" value="submit">
+                        </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script-->
+    <script type="text/javascript" defer src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+    <script type="text/javascript" src="js/vip/es6/vip-config.js"></script>
+    <script type="text/javascript" src="js/vip/es6/vip-player.js"></script>
+    <script type="text/javascript" src="js/vip/es6/vip-ext-cast-proxy.js"></script>
+    <script type="text/javascript" src="js/vip/es6/vip-ext-broadpeak.js"></script>
+    <script type="text/javascript" src="js/vip/es6/vip-ext-nielsen.js"></script>
+    <script type="text/javascript" src="js/vip-controls.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/stats.js"></script>
+    <script type="text/javascript">
+        window.veygoSample = {
+            queryParams: (new URL(document.location)).searchParams,
+            hashParams: new URLSearchParams((document.location.hash.substring(1))),
+        }
+    </script>
+        <script type="text/javascript" src="streams/streams-base.js"></script>       
+</body>
+</html>

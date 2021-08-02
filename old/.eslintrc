@@ -1,0 +1,13 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "overrides": [
+    {
+      "files": ["js/index_es5.js", "js/veygo-controls.js", "js/controls.js", "js/vip/*"],
+      "parserOptions": {
+        "ecmaVersion": 5
+      }
+    }
+  ]
+}

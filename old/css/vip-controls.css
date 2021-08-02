@@ -1,0 +1,331 @@
+.veygo-video-with-controls {
+  position: static;
+  background-color: black;
+  height: 100%; /* safari mac */
+}
+
+.cordova .veygo-video-with-controls {
+  position: relative;
+  background-color: transparent;
+
+}
+
+.veygo-castreceiver-name {
+  /* position: absolute; */
+  height: 100%;
+  width: 100%;
+}
+
+.fixed-video-aspect-ratio-container {
+  /* position: relative; */
+  height: 100%; /* safari mac */
+  width: 100%; /* safari mac */
+}
+
+
+.fixed-video-aspect-ratio {
+  position: relative;
+  width: 100%;
+  height: 0px;
+  padding-bottom: 56.25%; /* 100/16*9 => 56.25 */
+  border-bottom: 1px solid white;
+}
+
+.veygo-video {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.veygo-control-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* height: 2.5em; */
+  line-height: 2.5em;
+  font-size: medium;
+  color: var(--text-color);
+  background-color: dimgray;
+  padding: 0 1ex;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.veygo-control-bar  > * {
+  flex: 0 1 auto;
+  align-self: center;
+}
+
+.veygo-control-bar a {
+  text-decoration: none;
+  color: var(--text-color);
+  margin: 0 0.2ex;
+  width: 32px;
+  height: 32px;
+}
+
+.veygo-control button {
+  color: white;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  margin: 0 7px 0 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.veygo-control .position {
+  margin-left: 1em;
+  min-width: 5ex;
+}
+
+.veygo-control .duration {
+  min-width: 5ex;
+  margin-right: 1em;
+}
+
+.veygo-control .progress {
+  position: relative;
+  height: 100%;
+  flex: 1 1 auto;
+  background-color: inherit;
+  align-self: stretch;
+  display: flex;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.veygo-control .total {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20%;
+  bottom: 40%;
+  background-color: rgba(255, 255, 255, 0.5);
+  line-height: 0;
+}
+
+.veygo-control .fill {
+  position: absolute;
+  left: 0;
+  right: 100%;
+  height: 20%;
+  bottom: 40%;
+  background-color: rgba(255, 255, 255, 1);
+  line-height: 0;
+}
+
+.veygo-control .cursor-holder {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-self: stretch;
+}
+
+.veygo-control .cursor-container {
+  position: absolute;
+  display: flex;
+  align-self: center;
+  left: 0px;
+  right: 2em;
+  top: 0;
+  bottom: 0;
+}
+
+.veygo-control .cursor {
+  position: absolute;
+  left: 0%;
+  align-self: center;
+}
+
+.veygo-control .tracks li.enabled {
+  text-decoration: underline;
+}
+
+.veygo-control .tracks li.restricted {
+  background: rgba(255, 100, 100, 1.0);
+}
+
+.veygo-control .tracks {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  right: 0px;
+  /* margin-top: -277PX; */
+  background: rgba(255, 255, 255, 0.5);
+  width: 150px;
+  z-index: 2;
+  max-height: 233px;
+  height: 233px;
+  overflow-y: auto;
+}
+
+.veygo-control .tracks h3 {
+  margin: 0;
+  padding: 0 5px;
+}
+
+.veygo-control .tracks ul {
+  margin: 0;
+  padding: 0 5px;
+  font-size: 1em;
+}
+
+.veygo-control {
+  position: static;
+  height: 100%;
+  border: 1px solid black;
+  display: none;
+}
+
+.veygo-control-active {
+  display: block;
+}
+
+.veygo-control .thumbnail-container {
+    position: absolute;
+    text-align: center;
+}
+
+.veygo-control .thumbnail-elem {
+    position: relative;
+    box-shadow: 0px 0px 0.9em #000000;
+    transform-origin: center bottom;
+}
+
+.veygo-control .thumbnail-time-label {
+    position: relative;
+    bottom: 1.8em;
+    display: table;
+    margin: 0 auto;
+    padding: 2px 5px 2px 5px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.veygo-control .volume-bar {
+  width: auto;
+}
+
+body.veygo-full-window {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow-y:auto
+}
+
+.veygo-full-window .veygo-video-with-controls.veygo-fullscreen {
+    position: fixed;
+    overflow: hidden;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right:0
+}
+
+.veygo-video-with-controls.veygo-fullscreen {
+    width: 100% !important;
+    height: 100% !important;
+    padding-top:0 !important
+}
+
+.veygo-video-with-controls.veygo-fullscreen.veygo-user-inactive {
+    cursor:none
+}
+
+.veygo-autoplay-unmute {
+  display: none; /* display block programatically */
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+}
+
+.veygo-poster {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.veygo-poster img {
+  height: 100%;
+  width: 100%;
+}
+
+/* img without src has a border https://stackoverflow.com/questions/10441362/how-can-i-remove-the-border-around-an-image-without-a-source */
+.veygo-poster img:not([src]) {
+   display: none;
+ }
+
+.veygo-poster  > .icon-center {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  width: 100%;
+}
+
+.veygo-poster .icon-center-background {
+  margin: auto;
+}
+
+.veygo-poster > .icon-center a {
+  display: inline;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 50px;
+  vertical-align: bottom;
+  line-height: 0px;
+  opacity: 0.9;
+  /* background-color: black; */
+}
+
+.veygo-autoplay-unmute > .icon-center {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  line-height: 0px;
+}
+
+.veygo-autoplay-unmute > .icon-center > a {
+  display: inline;
+  width: 100%;
+  background-color: white;
+  background-color: var(--app-background-color); /* not supported by ie11: just une you background app color instead of white on previous line */
+  padding: 10px;
+
+  text-align: center;
+  font-size: 15vw;
+  vertical-align: bottom;
+  line-height: 0px;
+}
+
+.veygo-autoplay-unmute > .explain-muted {
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  display: block;
+  line-height: 0px;
+  font-size: 2vw;
+}
+
+.veygo-autoplay-unmute > .explain-muted > span {
+  display: inline;
+  width: 100%;
+  background-color: white;
+  background-color: var(--app-background-color); /* not supported by ie11: just une you background app color instead of white on previous line */
+  padding: 10px;
+}

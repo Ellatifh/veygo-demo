@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://co.veygo/veygo.sample.tizen" version="0.0.1" viewmodes="maximized">
+    <access origin="https://stackpath.bootstrapcdn.com" subdomains="false"></access>
+    <access origin="https://fonts.googleapis.com" subdomains="false"></access>
+    <access origin="https://code.jquery.com" subdomains="false"></access>
+    <access origin="https://cdnjs.cloudflare.com" subdomains="false"></access>
+    <access origin="https://vgproxy.useast1.veygo.co" subdomains="false"></access>
+    <access origin="https://fonts.gstatic.com" subdomains="false"></access>
+    <access origin="*" subdomains="false"></access>
+    <tizen:application id="CoVeygo000.PlayerSampleTizen" package="CoVeygo000" required_version="2.3"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+    <icon src="img/tizen.png"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="true"/>
+    <name>Veygo Player Sample</name>
+    <tizen:privilege name="http://developer.samsung.com/privilege/drmplay"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:profile name="tv-samsung"/>
+    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+</widget>

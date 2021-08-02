@@ -1,0 +1,125 @@
+/* Space out content a bit */
+body {
+  margin: 0;
+  padding: 0;
+  --background-color: white;
+  --nav-background-color: white;
+}
+
+body.nightTheme {
+  background-color: black;
+  color: lightskyblue;
+  --background-color: black;
+  --nav-background-color: #444444;
+}
+
+body.cordova {
+  background-color: transparent;
+}
+
+
+#nav.nightTheme {
+  background-color: #444444;
+}
+
+#nav{
+  padding: 10px;
+}
+
+#nav div {
+  /* display: inline-block; */
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.veygo-border {
+  border: 1px solid black;
+}
+
+.nightTheme .veygo-border {
+  border: 1px solid white;
+}
+
+.logo {
+  vertical-align: bottom;
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+}
+
+.applicationnamehead {
+  margin-left: -20px;
+}
+
+.applicationname {
+  display: inline-block;
+  vertical-align: -webkit-baseline-middle;
+}
+
+.nolist #nav {
+  display: none;
+}
+
+.veygo-player-window {
+  position: static;
+  width: 80%;
+  margin: 10px;
+  height: 100%;
+}
+
+.assets {
+  margin: 1.2em 0 0 0;
+}
+
+#customAsset div {
+  margin: 0 0 1.2em 0;
+}
+
+.assetContainer {
+  border: 2px solid black;
+  height: 100px;
+  margin: 0 0 0.5em 0;
+}
+
+.nightTheme .assetContainer  {
+  border: 2px solid white;
+}
+
+
+.assetContainer:focus {
+  border: 2px solid red;
+}
+
+.nightTheme .nav-tabs .nav-link.active {
+  background-color: #888;
+}
+
+.asset .badge {
+  margin: 3px;
+}
+
+.asset.disable {
+  color: grey;
+  cursor: default;
+  text-decoration: none;
+}
+
+.offlineBtn.disable {
+  color: grey;
+}
+
+.stats {
+  width: 80%;
+  border: 1px solid black;
+}
+
+.customAuthField {
+  padding: 1ex 0;
+}
+
+.customAuthInputText {
+  width: 70%;
+}

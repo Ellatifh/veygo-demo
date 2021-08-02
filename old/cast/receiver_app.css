@@ -1,0 +1,134 @@
+/**
+ * @license
+ * Copyright 2018 Veygo
+ */
+
+ html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  background-color: black;
+  --app-background-color: black;
+  color: white;
+}
+
+.fullscreen {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#video {
+  /* width: 100%; */
+  /* height: 100%; */
+  /* margin: auto; */
+}
+
+#controlsContainer {
+  padding: 0 3%;
+  height: auto;
+}
+
+#controls {
+  height: 100%;
+  max-width: initial;
+}
+
+#controls * {
+  font-size: 35px;
+}
+
+#controls button {
+  width: 50px;
+  height: 50px;
+}
+
+#seekBar {
+  height: 12px;
+  border-radius: 12px;
+}
+
+#seekBar::-webkit-slider-thumb {
+  width: 15%;
+  height: 15%;
+  border-radius: 15%;
+  opacity: 0.5;
+}
+
+#bufferingSpinner {
+  transform: scale(2.0);
+}
+
+.overlay-parent {
+  /* Makes this a positioned ancestor of .overlay */
+  position: relative;
+}
+
+.overlay {
+  /* Allows this to be positioned relative to a containing .overlay-parent */
+  position: absolute;
+}
+
+#idle {
+  padding-top: 60px;
+  background-color: black;
+
+  /* To make it easier to view in a browser in some non-Chromecast size: */
+  background-repeat: no-repeat;
+
+  /* Chromecast receiver guidelines say to change the screen every 30-60s */
+  animation: bg-change 90s linear infinite;
+}
+
+#idle h1 {
+  margin-left: 100px;
+  padding-top: 100px;
+  width: 600px;
+}
+
+.panel-active {
+
+}
+
+.panel-hidden {
+  display: none;
+}
+
+
+/* Preload the background images for idle mode */
+body:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url(../img/logo.png);
+}
+
+@keyframes bg-change {
+  32%  { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+  0%   { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+
+  34%  { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+  49%  { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+  50%  { background-image: url('../img/logo.png'); background-position: left 100px top 30%; background-size: 30%; padding-left: 500px; }
+  65%  { background-image: url('../img/logo.png'); background-position: left 100px top 30%; background-size: 30%; padding-left: 500px; }
+
+  67%  { background-image: url('../img/logo.png'); background-position: left 100px top 30%; background-size: 30%; padding-left: 500px; }
+  87%  { background-image: url('../img/logo.png'); background-position: left 100px top 30%; background-size: 30%; padding-left: 500px; }
+  88%  { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+  98%  { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+
+  100% { background-image: url('../img/logo.png'); background-position: left 700px top 30%; background-size: 30%; padding-left: 0; }
+}
